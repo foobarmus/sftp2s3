@@ -1,6 +1,14 @@
-# sftp2s3 - copy files from an sftp server to an S3 bucket
-# author: Jonas McCallum
-
+# Utility for Copying Files from an SFTP Server to an S3 Bucket
+#
+# Copyright 2017 Jonas McCallum.
+#
+# Open source, MIT license
+# http://www.opensource.org/licenses/mit-license.php
+"""
+Main controller
+Author: Jonas McCallum
+https://github.com/phatpiglet/sftp2s3
+"""
 import os, argparse, getpass
 
 import pysftp, boto3
