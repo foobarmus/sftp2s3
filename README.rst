@@ -2,7 +2,7 @@
 sftp2s3
 =======
 Copy a file from an SFTP server to an S3 bucket
--------
+-----------------------------------------------
 
 ::
 
@@ -10,13 +10,14 @@ Copy a file from an SFTP server to an S3 bucket
     python3 sftp2s3.py mysftpserver.com:/path/to/file2.png my-s3-bucketname
 
 Installation
--------
+------------
 
 ::
 
     git clone https://github.com/phatpiglet/sftp2s3.git
 
-Dependencies:
+Dependencies
+------------
 
 - boto3 `config help`_
 - pysftp troubleshooting_
