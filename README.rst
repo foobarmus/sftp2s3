@@ -6,8 +6,8 @@ Utility for Copying Files from an SFTP Server to an S3 Bucket
 Usage
 -----
 Once you have extracted the utility, installed the dependencies, and
-configured Boto3, you may navigate to the sftp2s3 directory, and run it
-using Python 2.7+ or 3.X, as follows:
+configured Boto3, navigate to the sftp2s3 directory, and do something
+like this:
 
 ::
 
@@ -21,7 +21,7 @@ Dependencies
 - pysftp `troubleshooting guide`_
 
 .. _config help: http://boto3.readthedocs.io/en/latest/guide/quickstart.html
-.. _troubleshooting: https://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py
+.. _troubleshooting guide: https://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py
 
 Both dependencies can be installed with pip. You may need to upgrade your
 pip installation first. Further tips and tricks can be found in the
