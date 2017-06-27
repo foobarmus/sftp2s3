@@ -1,0 +1,11 @@
+To: example@email.com
+From: example@email.com
+SES Region: us-west-2
+Subject: {username} uploaded {filename} to {bucket}
+
+You received this automated email because someone configured
+sftp2s3 to notify you in the event of uploads.
+
+Thank you.
+
+The Admin Team

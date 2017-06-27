@@ -6,30 +6,38 @@
 # http://www.opensource.org/licenses/mit-license.php
 """
 Main controller
+
 Author: Jonas McCallum
 https://github.com/phatpiglet/sftp2s3
+
 """
 import os, argparse, getpass
 
 import pysftp, boto3
 
+from email_parser import parse_email
 
 class FileTransfer(object):
     """file transfer controller"""
 
+    username = ''
+
     def __init__(self, args):
         """parse the command line arguments"""
         host, file_path = args.source.split(':')
-        filename = os.path.split(file_path)[-1]
         self.host = host
         self.file_path = file_path
-        self.filename = filename
+        self.filename = os.path.split(file_path)[-1]
         self.bucket = args.dest
-        self.args = args
 
     def sftp_get(self):
         """download source file to local"""
         credentials = _get_sftp_creds()
+
+        # preserve the username for the notification email
+        self.username = credentials['username']
+
+        # get the file
         with pysftp.Connection(self.host, **credentials) as sftp:
             sftp.get(self.file_path)
 
@@ -45,7 +53,17 @@ class FileTransfer(object):
         os.remove(self.filename)
 
     def notify(self):
-        """send email notification of upload"""
+        """send email notification"""
+        template = 'notification_email.txt'
+        args = {'username': self.username,
+                'filename': self.filename,
+                'bucket': self.bucket}
+        try:
+            email, region = parse_email(template, **args)
+            client = boto3.client('ses', region_name=region)
+            response = client.send_email(**email)
+        except FileNotFoundError:
+            print('{} not found. Skipping notification'.format(template))
 
 
 def _get_sftp_creds():
