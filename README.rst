@@ -41,6 +41,6 @@ To switch on email notifications:
 - copy notification_email_sample.txt to notification_email.txt
 - modify notification_email.txt to meet your requirements
 
-Note that if your AWS account still has SES in sandbox mode (the default)
-you can only use validated email addresses. Also note that SES is only
-available in 3 regions.
+Note that if your AWS account still has its SES service locked in
+sandbox mode (the default), you can only use validated email addresses.
+Also note that SES is only available in 3 regions.
