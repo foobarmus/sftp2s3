@@ -8,7 +8,7 @@
 Email parser
 
 Author: Jonas McCallum
-https://github.com/phatpiglet/sftp2s3
+https://github.com/foobarmus
 
 """
 import re
